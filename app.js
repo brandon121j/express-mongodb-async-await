@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
@@ -10,10 +12,7 @@ var todoRouter = require('./routes/todo/todoRouter');
 
 
 mongoose
-  .connect("mongodb://localhost:27017/express-mongodb-async-await", {
-    useNewURLParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(process.env.MONGO_DB)
   .then(() => {
     console.log("MONGODB CONNECTED");
   })

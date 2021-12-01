@@ -42,7 +42,7 @@ const postTodo = async(req, res) => {
     }
 }
 
-async function updateToById(req, res) {
+async function updateTodoById(req, res) {
     try {
         let updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
             new: true
@@ -61,5 +61,5 @@ module.exports = {
     fetchTodo,
     deleteTodo,
     postTodo,
-    updateToById
+    updateTodoById
 }
